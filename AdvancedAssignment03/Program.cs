@@ -82,13 +82,13 @@
             #endregion
 
             #region Exercise03
-            Dictionary<string, string> phoneBook = new()
-            {
-                ["Ahmed"] = "12345",
-                ["Sara"] = "67890",
-                ["Ali"] = "45323",
-                ["Mona"] = "16731",
-            };
+            //Dictionary<string, string> phoneBook = new()
+            //{
+            //    ["Ahmed"] = "12345",
+            //    ["Sara"] = "67890",
+            //    ["Ali"] = "45323",
+            //    ["Mona"] = "16731",
+            //};
 
             /*
              System.ArgumentException
@@ -99,37 +99,83 @@
 
             // phoneBook.Add("Ahmed", "1234");
 
-            if (phoneBook.TryAdd("Ahmed", "1234"))
-            {
-                Console.WriteLine("Succeeded! Ahmed Added");
-            }
-            else
-            {
-                Console.WriteLine("Failed to Add Ahmed");
+            //if (phoneBook.TryAdd("Ahmed", "1234"))
+            //{
+            //    Console.WriteLine("Succeeded! Ahmed Added");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Failed to Add Ahmed");
 
-            }
+            //}
 
-            if (phoneBook.TryGetValue("Amr", out string? value))
-            {
-                Console.WriteLine($"Value: {value}");
-            }
-            else
-            {
-                Console.WriteLine("Not Found");
-            }
+            //if (phoneBook.TryGetValue("Amr", out string? value))
+            //{
+            //    Console.WriteLine($"Value: {value}");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Not Found");
+            //}
 
-           
-            phoneBook.GetValueOrDefault("Amr", "Not Found");
 
-            foreach(var x in phoneBook.Keys)
+            //phoneBook.GetValueOrDefault("Amr", "Not Found");
+
+            //foreach(var x in phoneBook.Keys)
+            //{
+            //    Console.Write(x + " ");
+            //}
+            //Console.WriteLine();
+            //foreach(var x in phoneBook.Values)
+            //{
+            //    Console.Write(x + " ");
+            //}
+            #endregion
+
+
+            #region Exercise04
+            HashSet<string> emailValidator = new(StringComparer.OrdinalIgnoreCase)
             {
-                Console.Write(x + " ");
+                "ahmed@test.com",
+                "AHMED@test.com",
+                "sara@test.com",
+                "Sara@test.com",
+            };
+
+            // Prints 2, since HashSet stores only unique elements and our comparer is case insensitive
+            Console.WriteLine(emailValidator.Count);
+
+            Console.WriteLine();
+            HashSet<int> a = new() { 1, 2, 3, 4, 5 };
+            HashSet<int> b = new() { 4, 5, 6, 7, 8 };
+
+            var union = new HashSet<int>(a);
+            union.UnionWith(b);
+            foreach (int element in union)
+            {
+                Console.WriteLine(element);
             }
             Console.WriteLine();
-            foreach(var x in phoneBook.Values)
+
+            var intersect = new HashSet<int>(a);
+            intersect.IntersectWith(b);
+            foreach (int element in intersect)
             {
-                Console.Write(x + " ");
+                Console.WriteLine(element);
             }
+            Console.WriteLine();
+
+            var except = new HashSet<int>(a);
+            except.ExceptWith(b);
+            foreach (int element in except)
+            {
+                Console.WriteLine(element);
+            }
+            Console.WriteLine();
+
+
+            Console.WriteLine(a.IsSubsetOf([1, 2]));
+            
             #endregion
         }
     }
