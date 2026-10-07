@@ -9,7 +9,7 @@
             //{
             //    85, 92, 78, 95, 88, 70, 100, 65
             //};
-            
+
             //foreach (int grade in grades)
             //{
             //    Console.Write(grade + " ");
@@ -51,7 +51,7 @@
             #region Exercise02
             //SortedDictionary<int, string> leaderboard = new()
             //{
-            //    {500, "Ahmed" },
+            //    {500, "Ebrahim" },
             //    {200, "Sara" },
             //    {800, "Ali" },
             //    {350, "Mona" }
@@ -79,6 +79,57 @@
             //{
             //    Console.WriteLine(element);
             //}
+            #endregion
+
+            #region Exercise03
+            Dictionary<string, string> phoneBook = new()
+            {
+                ["Ahmed"] = "12345",
+                ["Sara"] = "67890",
+                ["Ali"] = "45323",
+                ["Mona"] = "16731",
+            };
+
+            /*
+             System.ArgumentException
+             HResult = 0x80070057
+              Message = An item with the same key has already been added.Key: Ahmed
+              Source = System.Private.CoreLib
+            */
+
+            // phoneBook.Add("Ahmed", "1234");
+
+            if (phoneBook.TryAdd("Ahmed", "1234"))
+            {
+                Console.WriteLine("Succeeded! Ahmed Added");
+            }
+            else
+            {
+                Console.WriteLine("Failed to Add Ahmed");
+
+            }
+
+            if (phoneBook.TryGetValue("Amr", out string? value))
+            {
+                Console.WriteLine($"Value: {value}");
+            }
+            else
+            {
+                Console.WriteLine("Not Found");
+            }
+
+           
+            phoneBook.GetValueOrDefault("Amr", "Not Found");
+
+            foreach(var x in phoneBook.Keys)
+            {
+                Console.Write(x + " ");
+            }
+            Console.WriteLine();
+            foreach(var x in phoneBook.Values)
+            {
+                Console.Write(x + " ");
+            }
             #endregion
         }
     }
