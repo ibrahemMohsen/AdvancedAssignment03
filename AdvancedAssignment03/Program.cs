@@ -179,22 +179,47 @@
             #endregion
 
             #region Exercise05
-            Queue<string> documents = new();
-            documents.Enqueue("Report.pdf");
-            documents.Enqueue("Invoice.pdf");
-            documents.Enqueue("Letter.docx");
-            documents.Enqueue("Resume.pdf");
-            documents.Enqueue("Photo.jpg");
+            //Queue<string> documents = new();
+            //documents.Enqueue("Report.pdf");
+            //documents.Enqueue("Invoice.pdf");
+            //documents.Enqueue("Letter.docx");
+            //documents.Enqueue("Resume.pdf");
+            //documents.Enqueue("Photo.jpg");
 
-            Console.WriteLine(string.Join(", ", documents));
-            Console.WriteLine(documents.Peek());
-            while(documents.TryDequeue(out string? doc))
+            //Console.WriteLine(string.Join(", ", documents));
+            //Console.WriteLine(documents.Peek());
+            //while(documents.TryDequeue(out string? doc))
+            //{
+            //    Console.WriteLine($"Printing: [{doc}]");
+            //}
+
+            //Console.WriteLine($"Try Dequeue output: {documents.TryDequeue(out string? result)}");
+            //Console.WriteLine($"Try Dequeue Result: {result}");
+            #endregion
+
+
+            #region Exercise06
+            Stack<string> browserHistory = new();
+            browserHistory.Push("google.com");
+            browserHistory.Push("github.com");
+            browserHistory.Push("stackoverflow.com");
+            browserHistory.Push("youtube.com");
+            browserHistory.Push("claude.ai");
+
+            Console.WriteLine(browserHistory.Peek());
+            Console.WriteLine();
+            for(int i = 0; i < 3; i++)
             {
-                Console.WriteLine($"Printing: [{doc}]");
+                Console.WriteLine(browserHistory.Pop());
             }
+            Console.WriteLine();
+            Console.WriteLine(browserHistory.Peek());
 
-            Console.WriteLine($"Try Dequeue output: {documents.TryDequeue(out string? result)}");
-            Console.WriteLine($"Try Dequeue Result: {result}");
+            browserHistory.Clear();
+
+            Console.WriteLine();
+            Console.WriteLine($"Try Pop output: {browserHistory.TryPop(out string? result)}");
+            Console.WriteLine($"Try Pop result: {result}");
             #endregion
         }
     }
