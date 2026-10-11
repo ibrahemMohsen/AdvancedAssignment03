@@ -134,48 +134,67 @@
 
 
             #region Exercise04
-            HashSet<string> emailValidator = new(StringComparer.OrdinalIgnoreCase)
+            //HashSet<string> emailValidator = new(StringComparer.OrdinalIgnoreCase)
+            //{
+            //    "ahmed@test.com",
+            //    "AHMED@test.com",
+            //    "sara@test.com",
+            //    "Sara@test.com",
+            //};
+
+            //// Prints 2, since HashSet stores only unique elements and our comparer is case insensitive
+            //Console.WriteLine(emailValidator.Count);
+
+            //Console.WriteLine();
+            //HashSet<int> a = new() { 1, 2, 3, 4, 5 };
+            //HashSet<int> b = new() { 4, 5, 6, 7, 8 };
+
+            //var union = new HashSet<int>(a);
+            //union.UnionWith(b);
+            //foreach (int element in union)
+            //{
+            //    Console.WriteLine(element);
+            //}
+            //Console.WriteLine();
+
+            //var intersect = new HashSet<int>(a);
+            //intersect.IntersectWith(b);
+            //foreach (int element in intersect)
+            //{
+            //    Console.WriteLine(element);
+            //}
+            //Console.WriteLine();
+
+            //var except = new HashSet<int>(a);
+            //except.ExceptWith(b);
+            //foreach (int element in except)
+            //{
+            //    Console.WriteLine(element);
+            //}
+            //Console.WriteLine();
+
+
+            //Console.WriteLine(a.IsSubsetOf([1, 2]));
+
+            #endregion
+
+            #region Exercise05
+            Queue<string> documents = new();
+            documents.Enqueue("Report.pdf");
+            documents.Enqueue("Invoice.pdf");
+            documents.Enqueue("Letter.docx");
+            documents.Enqueue("Resume.pdf");
+            documents.Enqueue("Photo.jpg");
+
+            Console.WriteLine(string.Join(", ", documents));
+            Console.WriteLine(documents.Peek());
+            while(documents.TryDequeue(out string? doc))
             {
-                "ahmed@test.com",
-                "AHMED@test.com",
-                "sara@test.com",
-                "Sara@test.com",
-            };
-
-            // Prints 2, since HashSet stores only unique elements and our comparer is case insensitive
-            Console.WriteLine(emailValidator.Count);
-
-            Console.WriteLine();
-            HashSet<int> a = new() { 1, 2, 3, 4, 5 };
-            HashSet<int> b = new() { 4, 5, 6, 7, 8 };
-
-            var union = new HashSet<int>(a);
-            union.UnionWith(b);
-            foreach (int element in union)
-            {
-                Console.WriteLine(element);
+                Console.WriteLine($"Printing: [{doc}]");
             }
-            Console.WriteLine();
 
-            var intersect = new HashSet<int>(a);
-            intersect.IntersectWith(b);
-            foreach (int element in intersect)
-            {
-                Console.WriteLine(element);
-            }
-            Console.WriteLine();
-
-            var except = new HashSet<int>(a);
-            except.ExceptWith(b);
-            foreach (int element in except)
-            {
-                Console.WriteLine(element);
-            }
-            Console.WriteLine();
-
-
-            Console.WriteLine(a.IsSubsetOf([1, 2]));
-            
+            Console.WriteLine($"Try Dequeue output: {documents.TryDequeue(out string? result)}");
+            Console.WriteLine($"Try Dequeue Result: {result}");
             #endregion
         }
     }
